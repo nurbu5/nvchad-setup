@@ -5,6 +5,9 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
+  i = {
+    ["jk"] = { "<Esc>", "alternative escape key", opts = { nowait = true } },
+  },
 }
 
 -- more keybinds!

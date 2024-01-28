@@ -50,20 +50,14 @@ local plugins = {
         "python",
       },
     },
+    indent = {
+      enable = false,
+    },
   },
 
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
-  },
-
-  -- Install a plugin
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
   },
 
   -- To make a plugin not be loaded
@@ -179,6 +173,12 @@ local plugins = {
       require('toggle_lsp_diagnostics').init()
     end,
   },
+
+  -- linting
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  }
 }
 
 return plugins
