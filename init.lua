@@ -5,3 +5,7 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+--
+
+vim.wo.relativenumber = true
+vim.wo.foldtext = 'v:lua.vim.treesitter.foldtext()'

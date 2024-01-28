@@ -2,7 +2,6 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
 
   {
@@ -110,7 +109,7 @@ local plugins = {
         auto_refresh = false,
         keymap = {
           jump_prev = "p",
-          jump_next = "",
+          jump_next = "n",
           accept = "<CR>",
           refresh = "gr",
           open = "<C-a>"
@@ -154,6 +153,30 @@ local plugins = {
       table.insert(opts.sources, 1, { name = "copilot", group_index = 2 })
       opts.sorting = opts.sorting or require("cmp.config.default")().sorting
       table.insert(opts.sorting.comparators, 1, require("copilot_cmp.comparators").prioritize)
+    end,
+  },
+
+  -- Use '-' to open vim-like file explorer (you can copy, add, and delete files with this as well)
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    keys = {
+      { "-", mode = { "n" }, "<cmd>Oil<cr>", desc = "Open parent directory" },
+    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup()
+    end,
+  },
+
+  {
+    'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+    opts = {},
+    keys = {
+      { "<leader>tw", mode = { "n" }, "<Plug>(toggle-lsp-diag)", desc = "Toggle LSP Diagnostics" },
+    },
+    config = function()
+      require('toggle_lsp_diagnostics').init()
     end,
   },
 }
