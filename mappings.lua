@@ -8,6 +8,9 @@ M.general = {
   i = {
     ["jk"] = { "<Esc>", "alternative escape key", opts = { nowait = true } },
   },
+  v = {
+    ["jk"] = { "<Esc>", "alternative escape key", opts = { nowait = true } },
+  },
 }
 
 -- more keybinds!
